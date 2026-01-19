@@ -1,75 +1,53 @@
 # **Please note that this is a WIP Project **
+Using React + TypeScript and WebSpatial SDK to build up a website allowing Spotify Premium Users to log in, and play random music in Apple Vision Pro's Shared Space.
 
-# React + TypeScript + Vite
+# Spotify Liked Songs (WebSpatial Enhanced)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application built with **React**, **TypeScript**, and **Vite** that allows users to log in with Spotify, view their liked songs, and control playback directly in the browser.
 
-Currently, two official plugins are available:
+🚀 **Key Highlight**: This project is enhanced with the **WebSpatial SDK**, enabling a native-like spatial computing experience on **Apple Vision Pro (visionOS)**. It features a transparent, glassmorphic UI that floats in 3D space when running in a spatial environment.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+### 🎵 Core Functionality (2D & Spatial)
+* **Spotify Authentication**: Secure login using OAuth 2.0 with PKCE flow.
+* **User Library Access**: Fetches and displays the user's "Liked Songs" and profile information.
+* **Web Playback SDK**: Integrated Spotify Web Playback SDK for high-quality in-browser music streaming.
+* **Smart Controls**:
+    * Play/Pause toggle.
+    * **Random Next**: One-click functionality to randomly play the next track from your liked list.
+* **Session Management**: Auto-refresh token logic and secure logout flow.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🥽 WebSpatial Experience (visionOS)
+* **Spatial UI**: The interface adapts when running on the WebSpatial App Shell (Apple Vision Pro).
+* **Immersive Design**:
+    * **Transparent Background**: The main window becomes fully transparent, blending seamlessly with the user's physical environment.
+    * **Glassmorphism**: Player controls use a frosted glass effect (`translucent` material).
+    * **Floating Elements**: The logout button and player controls float elegantly in 3D space.
+* **Environment Awareness**: Uses `XR_ENV` injection to detect spatial modes and apply specific styles dynamically.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* **Framework**: [React](https://react.dev/) + [Vite](https://vitejs.dev/)
+* **Language**: [TypeScript](https://www.typescriptlang.org/)
+* **Package Manager**: [pnpm](https://pnpm.io/)
+* **Spatial SDK**: `@webspatial/react-sdk`, `@webspatial/core-sdk`, `@webspatial/vite-plugin`.
+* **Build Tooling**: `@webspatial/builder` for packaging visionOS apps.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
+1.  **Spotify Premium**: Required for the Web Playback SDK to function.
+2.  **Spotify Client ID**: Create an app in the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) and set the Redirect URI to `http://127.0.0.1:5173/callback`.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Installation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+```bash
+# Clone the repository
+git clone <your-repo-url>
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
+# Install dependencies
+pnpm install
   },
 ])
 ```
