@@ -1,4 +1,4 @@
-#Please note that this is a WIP Project 
+# **Please note that this is a WIP Project **
 
 # React + TypeScript + Vite
 
