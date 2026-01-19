@@ -1,8 +1,8 @@
 // ⚠️ 请替换为你自己的 Client ID
-const clientId = "f805bc7b111642d887764fb339dc288a"; 
+const clientId = "xxxxxxxxxx"; 
 
 // ⚠️ 必须与 Spotify 后台一致，且与 vite.config.ts 一致
-const redirectUri = "http://127.0.0.1:5173/callback";
+const redirectUri = "xxxxxxxx";
 
 function generateRandomString(length: number) {
   let text = "";
